@@ -24,6 +24,7 @@ library
                     , ApiProcessing
                     , GenericData
                     , TableManipulation
+                    , Queries
     -- Modules included in this library but not exported.
     -- other-modules:
 

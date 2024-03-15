@@ -1,5 +1,3 @@
-
-
 module TableManipulation where
 
 import MyLib

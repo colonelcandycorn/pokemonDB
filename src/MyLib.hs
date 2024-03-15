@@ -51,6 +51,29 @@ import Data.Aeson.KeyMap (insert)
 --               -> IO [Test]
 -- runTestSelect = runSelect
 
+type PokemonSqlField = PokemonSql' (Field SqlInt4) (Field SqlText) (Field SqlInt4) (Field SqlInt4) (Field SqlInt4) (Field SqlInt4) (Field SqlInt4) (Field SqlInt4) (Field SqlInt4) (Field SqlInt4) (FieldNullable SqlInt4)
+
+type EggGroupSqlField = EggGroupSql' (Field SqlInt4) (Field SqlText)
+
+type PokemonSpeciesSqlField = PokemonSpeciesSql' (Field SqlInt4) (Field SqlBool) (Field SqlBool) (FieldNullable SqlInt4) (Field SqlInt4) (Field SqlText)
+
+type ActualMoveSqlField = ActualMoveSql' (Field SqlInt4) (Field SqlText) (Field SqlInt4) (FieldNullable SqlInt4) (FieldNullable SqlInt4) (FieldNullable SqlInt4)
+
+type MovePokemonRelationSqlField = MovePokemonRelationSql' (Field SqlInt4) (Field SqlInt4)
+
+type ActualAbilitySqlField = ActualAbilitySql' (Field SqlInt4) (Field SqlText)
+
+type AbilityPokemonRelationSqlField = AbilityPokemonRelationSql' (Field SqlInt4) (Field SqlInt4)
+
+type TypeSqlField = TypeSql' (Field SqlInt4) (Field SqlText)
+
+type TypeDoubleDamageSqlField = TypeDoubleDamageSql' (Field SqlInt4) (Field SqlInt4)
+
+type TypeHalfDamageSqlField = TypeHalfDamageSql' (Field SqlInt4) (Field SqlInt4)
+
+type TypeNoDamageSqlField = TypeNoDamageSql' (Field SqlInt4) (Field SqlInt4)
+
+
 $(makeAdaptorAndInstance "pPokemonSql" ''PokemonSql')
 
 $(makeAdaptorAndInstance "pEggGroupSql" ''EggGroupSql')
@@ -270,29 +293,6 @@ insertSpecies x = Insert
 
 
 
-
-
-type PokemonSqlField = PokemonSql' (Field SqlInt4) (Field SqlText) (Field SqlInt4) (Field SqlInt4) (Field SqlInt4) (Field SqlInt4) (Field SqlInt4) (Field SqlInt4) (Field SqlInt4) (Field SqlInt4) (FieldNullable SqlInt4)
-
-type EggGroupSqlField = EggGroupSql' (Field SqlInt4) (Field SqlText)
-
-type PokemonSpeciesSqlField = PokemonSpeciesSql' (Field SqlInt4) (Field SqlBool) (Field SqlBool) (FieldNullable SqlInt4) (Field SqlInt4) (Field SqlText)
-
-type ActualMoveSqlField = ActualMoveSql' (Field SqlInt4) (Field SqlText) (Field SqlInt4) (FieldNullable SqlInt4) (FieldNullable SqlInt4) (FieldNullable SqlInt4)
-
-type MovePokemonRelationSqlField = MovePokemonRelationSql' (Field SqlInt4) (Field SqlInt4)
-
-type ActualAbilitySqlField = ActualAbilitySql' (Field SqlInt4) (Field SqlText)
-
-type AbilityPokemonRelationSqlField = AbilityPokemonRelationSql' (Field SqlInt4) (Field SqlInt4)
-
-type TypeSqlField = TypeSql' (Field SqlInt4) (Field SqlText)
-
-type TypeDoubleDamageSqlField = TypeDoubleDamageSql' (Field SqlInt4) (Field SqlInt4)
-
-type TypeHalfDamageSqlField = TypeHalfDamageSql' (Field SqlInt4) (Field SqlInt4)
-
-type TypeNoDamageSqlField = TypeNoDamageSql' (Field SqlInt4) (Field SqlInt4)
 
 actualMoveToMoveRelationSql :: ActualMove -> [MovePokemonRelationSql]
 actualMoveToMoveRelationSql x = 
